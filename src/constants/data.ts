@@ -52,91 +52,95 @@ export type Reward = {
   reviewed: boolean;
 };
 
-export const rewards: Reward[] = [];
+// export const rewards: Reward[] = [];
 
-for (let i = 0; i < 20; i++) {
-  const reward: Reward = {
-    id: i + 1,
-    user_id: `user_${i}`,
-    username: `username_${i}`,
-    reward_type: getRandomRewardType(),
-    time: formatDate(new Date()),
-    reward_score: Math.floor(Math.random() * 100),
-    current_karma: Math.floor(Math.random() * 1000),
-    new_karma: Math.floor(Math.random() * 2000),
-    reviewed: Math.random() < 0.5,
-  };
-  rewards.push(reward);
-}
-function getRandomRewardType(): RewardType {
-  const types: RewardType[] = [
-    "new_post",
-    "like",
-    "post_answer",
-    "follow",
-    "1k_reached",
-    "5k_reached",
-    "10k_reached",
-  ];
-  const randomIndex = Math.floor(Math.random() * types.length);
-  return types[randomIndex];
-}
+// for (let i = 0; i < 20; i++) {
+//   const reward: Reward = {
+//     id: i + 1,
+//     user_id: `user_${i}`,
+//     username: `username_${i}`,
+//     reward_type: getRandomRewardType(),
+//     time: formatDate(new Date()),
+//     reward_score: Math.floor(Math.random() * 100),
+//     current_karma: Math.floor(Math.random() * 1000),
+//     new_karma: Math.floor(Math.random() * 2000),
+//     reviewed: Math.random() < 0.5,
+//   };
+//   rewards.push(reward);
+// }
+// function getRandomRewardType(): RewardType {
+//   const types: RewardType[] = [
+//     "new_post",
+//     "like",
+//     "post_answer",
+//     "follow",
+//     "1k_reached",
+//     "5k_reached",
+//     "10k_reached",
+//   ];
+//   const randomIndex = Math.floor(Math.random() * types.length);
+//   return types[randomIndex];
+// }
 
-function formatDate(date: Date) {
-  const day = String(date.getDate()).padStart(2, "0");
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const year = date.getFullYear();
-  return `${day}-${month}-${year}`;
-}
+export function formatDate(dateString: string | Date) {
+  const date = new Date(dateString);
+  const formattedDate = date.toLocaleDateString("en-US", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  });
 
-export const penalties: Penalty[] = [];
-
-for (let i = 0; i < 30; i++) {
-  const penalty: Penalty = {
-    id: i + 1,
-    user_id: `user_${i}`,
-    username: `username_${i}`,
-    penalty_type: getRandomPenaltyType(),
-    system_recognition: getRandomRecognitionType(),
-    triage: getRandomTriage(),
-    time: formatDate(new Date()),
-    penalty_score: Math.floor(Math.random() * 100),
-    current_karma: Math.floor(Math.random() * 1000),
-    new_karma: Math.floor(Math.random() * 2000),
-    reviewed: Math.random() < 0.5,
-  };
-  penalties.push(penalty);
+  return formattedDate;
 }
 
-function getRandomTriage(): Triage {
-  const types: Triage[] = ["critical", "low", "medium"];
-  const randomIndex = Math.floor(Math.random() * types.length);
-  return types[randomIndex];
-}
-function getRandomRecognitionType(): SystemRecognition {
-  const types: SystemRecognition[] = [
-    "IP_track",
-    "ML_IA",
-    "user_report",
-    "content_analysis",
-  ];
-  const randomIndex = Math.floor(Math.random() * types.length);
-  return types[randomIndex];
-}
+// export const penalties: Penalty[] = [];
 
-function getRandomPenaltyType(): PenaltyType {
-  const types: PenaltyType[] = [
-    "auto_post",
-    "auto_like",
-    "auto_reply",
-    "follow_back",
-    "cross_interaction",
-    "mass_acc_creation",
-    "manipulation",
-  ];
-  const randomIndex = Math.floor(Math.random() * types.length);
-  return types[randomIndex];
-}
+// for (let i = 0; i < 30; i++) {
+//   const penalty: Penalty = {
+//     id: i + 1,
+//     user_id: `user_${i}`,
+//     username: `username_${i}`,
+//     penalty_type: getRandomPenaltyType(),
+//     system_recognition: getRandomRecognitionType(),
+//     triage: getRandomTriage(),
+//     time: formatDate(new Date()),
+//     penalty_score: Math.floor(Math.random() * 100),
+//     current_karma: Math.floor(Math.random() * 1000),
+//     new_karma: Math.floor(Math.random() * 2000),
+//     reviewed: Math.random() < 0.5,
+//   };
+//   penalties.push(penalty);
+// }
+
+// function getRandomTriage(): Triage {
+//   const types: Triage[] = ["critical", "low", "medium"];
+//   const randomIndex = Math.floor(Math.random() * types.length);
+//   return types[randomIndex];
+// }
+// function getRandomRecognitionType(): SystemRecognition {
+//   const types: SystemRecognition[] = [
+//     "IP_track",
+//     "ML_IA",
+//     "user_report",
+//     "content_analysis",
+//   ];
+//   const randomIndex = Math.floor(Math.random() * types.length);
+//   return types[randomIndex];
+// }
+
+// function getRandomPenaltyType(): PenaltyType {
+//   const types: PenaltyType[] = [
+//     "auto_post",
+//     "auto_like",
+//     "auto_reply",
+//     "follow_back",
+//     "cross_interaction",
+//     "mass_acc_creation",
+//     "manipulation",
+//   ];
+//   const randomIndex = Math.floor(Math.random() * types.length);
+//   return types[randomIndex];
+// }
 
 export const navItems: NavItem[] = [
   {
