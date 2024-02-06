@@ -15,7 +15,6 @@ import { signOut, useSession } from "next-auth/react";
 export function UserNav() {
   const { data: session } = useSession();
 
-  console.log(session);
   if (session) {
     return (
       <DropdownMenu>
@@ -58,7 +57,13 @@ export function UserNav() {
             <DropdownMenuItem>New Team</DropdownMenuItem>
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
-          <DropdownMenuItem onClick={() => signOut()}>
+          <DropdownMenuItem
+            onClick={() =>
+              signOut({
+                callbackUrl: "/",
+              })
+            }
+          >
             Log out
             <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
           </DropdownMenuItem>

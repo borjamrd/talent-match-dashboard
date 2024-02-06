@@ -15,7 +15,7 @@ import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
-import GoogleSignInButton from "../github-auth-button";
+import GoogleSignInButton from "../google-auth-button";
 
 const formSchema = z.object({
   username: z.string().min(4, { message: "Min 4 letters" }),
@@ -79,7 +79,7 @@ export default function UserAuthForm() {
                 <FormControl>
                   <Input
                     type="password"
-                    placeholder="*****"
+                    placeholder="Password"
                     disabled={loading}
                     {...field}
                   />
