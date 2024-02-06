@@ -1,115 +1,142 @@
-import { Icons } from "@/components/icons";
-import { NavItem, SidebarNavItem } from "@/types";
+import { NavItem } from "@/types";
 
-export type User = {
-  id: number;
-  name: string;
-  company: string;
-  role: string;
-  verified: boolean;
-  status: string;
-};
-export const users: User[] = [
-  {
-    id: 1,
-    name: "Candice Schiner",
-    company: "Dell",
-    role: "Frontend Developer",
-    verified: false,
-    status: "Active",
-  },
-  {
-    id: 2,
-    name: "John Doe",
-    company: "TechCorp",
-    role: "Backend Developer",
-    verified: true,
-    status: "Active",
-  },
-  {
-    id: 3,
-    name: "Alice Johnson",
-    company: "WebTech",
-    role: "UI Designer",
-    verified: true,
-    status: "Active",
-  },
-  {
-    id: 4,
-    name: "David Smith",
-    company: "Innovate Inc.",
-    role: "Fullstack Developer",
-    verified: false,
-    status: "Inactive",
-  },
-  {
-    id: 5,
-    name: "Emma Wilson",
-    company: "TechGuru",
-    role: "Product Manager",
-    verified: true,
-    status: "Active",
-  },
-  {
-    id: 6,
-    name: "James Brown",
-    company: "CodeGenius",
-    role: "QA Engineer",
-    verified: false,
-    status: "Active",
-  },
-  {
-    id: 7,
-    name: "Laura White",
-    company: "SoftWorks",
-    role: "UX Designer",
-    verified: true,
-    status: "Active",
-  },
-  {
-    id: 8,
-    name: "Michael Lee",
-    company: "DevCraft",
-    role: "DevOps Engineer",
-    verified: false,
-    status: "Active",
-  },
-  {
-    id: 9,
-    name: "Olivia Green",
-    company: "WebSolutions",
-    role: "Frontend Developer",
-    verified: true,
-    status: "Active",
-  },
-  {
-    id: 10,
-    name: "Robert Taylor",
-    company: "DataTech",
-    role: "Data Analyst",
-    verified: false,
-    status: "Active",
-  },
-];
+export type RewardType =
+  | "new_post"
+  | "like"
+  | "post_answer"
+  | "follow"
+  | "1k_reached"
+  | "5k_reached"
+  | "10k_reached";
 
-export type Employee = {
+export type PenaltyType =
+  | "auto_post"
+  | "auto_like"
+  | "auto_reply"
+  | "follow_back"
+  | "cross_interaction"
+  | "mass_acc_creation"
+  | "manipulation";
+
+export type SystemRecognition =
+  | "IP_track"
+  | "ML_IA"
+  | "user_report"
+  | "content_analysis";
+
+export type Triage = "medium" | "low" | "critical";
+
+export type Penalty = {
   id: number;
-  first_name: string;
-  last_name: string;
-  email: string;
-  phone: string;
-  gender: string;
-  date_of_birth: string; // Consider using a proper date type if possible
-  street: string;
-  city: string;
-  state: string;
-  country: string;
-  zipcode: string;
-  longitude?: number; // Optional field
-  latitude?: number; // Optional field
-  job: string;
-  profile_picture?: string | null; // Profile picture can be a string (URL) or null (if no picture)
+  user_id: string;
+  username: string;
+  penalty_type: PenaltyType;
+  system_recognition: SystemRecognition;
+  time: Date | string;
+  triage: Triage;
+  penalty_score: number;
+  current_karma: number;
+  new_karma: number;
+  reviewed: boolean;
 };
+
+export type Reward = {
+  id: number;
+  user_id: string;
+  username: string;
+  reward_type: RewardType;
+  time: Date | string;
+  reward_score: number;
+  current_karma: number;
+  new_karma: number;
+  reviewed: boolean;
+};
+
+export const rewards: Reward[] = [];
+
+for (let i = 0; i < 20; i++) {
+  const reward: Reward = {
+    id: i + 1,
+    user_id: `user_${i}`,
+    username: `username_${i}`,
+    reward_type: getRandomRewardType(),
+    time: formatDate(new Date()),
+    reward_score: Math.floor(Math.random() * 100),
+    current_karma: Math.floor(Math.random() * 1000),
+    new_karma: Math.floor(Math.random() * 2000),
+    reviewed: Math.random() < 0.5,
+  };
+  rewards.push(reward);
+}
+function getRandomRewardType(): RewardType {
+  const types: RewardType[] = [
+    "new_post",
+    "like",
+    "post_answer",
+    "follow",
+    "1k_reached",
+    "5k_reached",
+    "10k_reached",
+  ];
+  const randomIndex = Math.floor(Math.random() * types.length);
+  return types[randomIndex];
+}
+
+function formatDate(date: Date) {
+  const day = String(date.getDate()).padStart(2, "0");
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const year = date.getFullYear();
+  return `${day}-${month}-${year}`;
+}
+
+export const penalties: Penalty[] = [];
+
+for (let i = 0; i < 30; i++) {
+  const penalty: Penalty = {
+    id: i + 1,
+    user_id: `user_${i}`,
+    username: `username_${i}`,
+    penalty_type: getRandomPenaltyType(),
+    system_recognition: getRandomRecognitionType(),
+    triage: getRandomTriage(),
+    time: formatDate(new Date()),
+    penalty_score: Math.floor(Math.random() * 100),
+    current_karma: Math.floor(Math.random() * 1000),
+    new_karma: Math.floor(Math.random() * 2000),
+    reviewed: Math.random() < 0.5,
+  };
+  penalties.push(penalty);
+}
+
+function getRandomTriage(): Triage {
+  const types: Triage[] = ["critical", "low", "medium"];
+  const randomIndex = Math.floor(Math.random() * types.length);
+  return types[randomIndex];
+}
+function getRandomRecognitionType(): SystemRecognition {
+  const types: SystemRecognition[] = [
+    "IP_track",
+    "ML_IA",
+    "user_report",
+    "content_analysis",
+  ];
+  const randomIndex = Math.floor(Math.random() * types.length);
+  return types[randomIndex];
+}
+
+function getRandomPenaltyType(): PenaltyType {
+  const types: PenaltyType[] = [
+    "auto_post",
+    "auto_like",
+    "auto_reply",
+    "follow_back",
+    "cross_interaction",
+    "mass_acc_creation",
+    "manipulation",
+  ];
+  const randomIndex = Math.floor(Math.random() * types.length);
+  return types[randomIndex];
+}
 
 export const navItems: NavItem[] = [
   {
