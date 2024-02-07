@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge";
-import { Reward, RewardType, iconprops } from "@/constants/data";
+import { Penalty, PenaltyType, iconprops } from "@/constants/data";
 import {
     Trophy,
     ThumbsUp,
@@ -8,11 +8,16 @@ import {
     Rocket,
     UserPlus,
     Speech,
+    Drama,
+    DatabaseZap,
+    Workflow,
+    Repeat,
+    ThumbsDown,
 } from "lucide-react";
-interface RewardBadgeActionProps {
-    type: RewardType;
+interface PenaltyBadgeActionProps {
+    type: PenaltyType;
 }
-export const RewardBadge: React.FC<RewardBadgeActionProps> = ({ type }) => {
+export const PenaltyBadge: React.FC<PenaltyBadgeActionProps> = ({ type }) => {
     function splitAndCapitalize(str: string) {
         const words = str.split("_");
         const capitalizedWords = words.map((word) => {
@@ -22,51 +27,51 @@ export const RewardBadge: React.FC<RewardBadgeActionProps> = ({ type }) => {
         return capitalizedWords.join(" ");
     }
 
-    const icons: Record<RewardType, JSX.Element> = {
-        "10k_reached": (
-            <Trophy
+    const icons: Record<PenaltyType, JSX.Element> = {
+        auto_like: (
+            <ThumbsDown
                 size={iconprops.size}
                 strokeWidth={iconprops.width}
                 className="me-3 text-slate-700 dark:text-slate-300"
             />
         ),
-        like: (
-            <ThumbsUp
+        auto_post: (
+            <Repeat
                 size={iconprops.size}
                 strokeWidth={iconprops.width}
                 className="me-3 text-slate-700 dark:text-slate-300"
             />
         ),
-        new_post: (
-            <BookHeart
+        auto_reply: (
+            <Workflow
                 size={iconprops.size}
                 strokeWidth={iconprops.width}
                 className="me-3 text-slate-700 dark:text-slate-300"
             />
         ),
-        post_answer: (
+        cross_interaction: (
             <Speech
                 size={iconprops.size}
                 strokeWidth={iconprops.width}
                 className="me-3 text-slate-700 dark:text-slate-300"
             />
         ),
-        "1k_reached": (
-            <HandMetal
-                size={iconprops.size}
-                strokeWidth={iconprops.width}
-                className="me-3 text-slate-700 dark:text-slate-300"
-            />
-        ),
-        "5k_reached": (
-            <Rocket
-                size={iconprops.size}
-                strokeWidth={iconprops.width}
-                className="me-3 text-slate-700 dark:text-slate-300"
-            />
-        ),
-        follow: (
+        follow_back: (
             <UserPlus
+                size={iconprops.size}
+                strokeWidth={iconprops.width}
+                className="me-3 text-slate-700 dark:text-slate-300"
+            />
+        ),
+        manipulation: (
+            <Drama
+                size={iconprops.size}
+                strokeWidth={iconprops.width}
+                className="me-3 text-slate-700 dark:text-slate-300"
+            />
+        ),
+        mass_acc_creation: (
+            <DatabaseZap
                 size={iconprops.size}
                 strokeWidth={iconprops.width}
                 className="me-3 text-slate-700 dark:text-slate-300"
@@ -75,7 +80,7 @@ export const RewardBadge: React.FC<RewardBadgeActionProps> = ({ type }) => {
     };
 
     return (
-        <Badge variant="secondary" className="text-xs" key={type}>
+        <Badge variant="secondary" className="text-xs bg-red-600/10" key={type}>
             {icons[type]}
             {splitAndCapitalize(type)}
         </Badge>

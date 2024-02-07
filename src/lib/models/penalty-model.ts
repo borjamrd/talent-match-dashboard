@@ -39,4 +39,4 @@ const penaltySchema = new mongoose.Schema<Penalty>(
 );
 
 export const PenaltyModel =
-  mongoose.models.Penalty || mongoose.model("Penalty", penaltySchema);
+  mongoose.models?.Penalty || mongoose.model("Penalty", penaltySchema);

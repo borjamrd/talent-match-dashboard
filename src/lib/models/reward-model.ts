@@ -35,4 +35,4 @@ const rewardSchema = new mongoose.Schema<Reward>(
 );
 
 export const RewardModel =
-  mongoose.models.Reward || mongoose.model("Reward", rewardSchema);
+  mongoose.models?.Reward || mongoose.model("Reward", rewardSchema);
