@@ -25,8 +25,14 @@ export const authOptions: NextAuthOptions = {
         },
       },
       async authorize(credentials, req) {
-        const user = { id: "1", name: "John", username: credentials?.username };
-        if (user) {
+        const user = {
+          id: "1",
+          name: "TalentAdmin",
+          email: "admin@talentmatch.com",
+          username: credentials?.username,
+          rol: "admin",
+        };
+        if (user.username === "TalentAdmin") {
           return user;
         } else {
           return null;
