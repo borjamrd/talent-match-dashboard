@@ -12,7 +12,6 @@ interface PenaltyProps {
 }
 
 export const Penalties: React.FC<PenaltyProps> = ({ data }) => {
-  console.log(data);
   return (
     <>
       <div className="flex items-start justify-between">

@@ -1,12 +1,12 @@
-import { MongoClient } from "mongodb";
 import mongoose from "mongoose";
-
-const client = new MongoClient(process.env.MONGO_URI ?? "");
 
 export const connectToDB = async () => {
   const connection: any = {};
   try {
-    if (connection?.isConnected) return;
+    if (connection?.isConnected){
+      console.log('Connected successfully', connection)
+      return;
+    } 
     const db: any = await mongoose.connect(process.env.MONGO_URI ?? "");
 
     connection.isConnected = db.connections[0]?.readyState;
