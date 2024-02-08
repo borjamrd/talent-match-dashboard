@@ -26,7 +26,7 @@ export default function Rules() {
             not tolerated and the importance of promoting responsible usage.
           </p>
         </div>
-        <ScrollArea className="h-[40rem]">
+        <ScrollArea className="h-[40rem] py-10 pe-10">
           <div className="flex flex-col gap-5">
             <RewardsScoring />
             <PenaltiesScoring />

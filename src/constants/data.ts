@@ -1,3 +1,4 @@
+import { metadata } from "./../app/layout";
 import { NavItem } from "@/types";
 
 export const iconprops = {
@@ -152,12 +153,12 @@ export const rewardsScoringColumns: { title: string; value: string }[] = [
   },
 
   {
-    title: "Scoring",
-    value: "scoring",
-  },
-  {
     title: "Description",
     value: "description",
+  },
+  {
+    title: "Scoring",
+    value: "scoring",
   },
 ];
 
@@ -168,45 +169,52 @@ export const rewardsScoringData: {
 }[] = [
   {
     type: "follow",
-    scoring: +342,
+
     description:
       "This reward is earned when a user gains a new follower on the platform. It acknowledges users for their influence or the value they bring to the community, encouraging them to continue engaging with others and sharing meaningful content.",
+    scoring: +342,
   },
   {
     type: "like",
-    scoring: +560,
+
     description:
       "This reward is granted when a user's post receives a certain number of likes or positive reactions from other users. It serves as positive reinforcement for creating valuable or popular content and encourages users to continue sharing content that resonates with the community",
+    scoring: +560,
   },
   {
     type: "new_post",
-    scoring: 797,
+
     description:
       "This reward is triggered when a user creates a new post on the platform. It encourages users to contribute their thoughts, ideas, or content to the community, fostering engagement and activity.",
+    scoring: 797,
   },
   {
     type: "post_answer",
-    scoring: 1000,
+
     description:
       "This reward is triggered when a user's question or post receives an answer or response from another user. It incentivizes users to actively participate in discussions and helps build a sense of community by facilitating interactions and knowledge-sharing.",
+    scoring: 1000,
   },
   {
     type: "1k_reached",
-    scoring: 1500,
+
     description:
       "This reward is unlocked when a user's post or contribution reaches a milestone of 1,000 views or interactions. It celebrates the user's achievement and encourages them to create more engaging or impactful content to reach even larger audiences.",
+    scoring: 1500,
   },
   {
     type: "5k_reached",
-    scoring: 3000,
+
     description:
       "Similar to 1k_reached this reward is triggered when a user's post or contribution reaches a milestone of 5,000 views or interactions. It serves as further recognition of the user's success and motivates them to continue producing high-quality content.",
+    scoring: 3000,
   },
   {
     type: "10k_reached",
-    scoring: 6000,
+
     description:
       "his reward is achieved when a user's post or contribution reaches a significant milestone of 10,000 views or interactions. It signifies exceptional success and influence within the community, motivating the user to maintain their level of engagement and contribution.",
+    scoring: 6000,
   },
 ];
 
@@ -229,17 +237,59 @@ export const penaltiesScoringColumns = [
   },
 ];
 
-export const penaltiesScoringData = [
+export const penaltiesScoringData: {
+  type: PenaltyType;
+  description: string;
+  scoring: number;
+  action: string;
+}[] = [
   {
-    scoring: "row1",
-    description: "lorem",
-    karma: 122,
-    action: "lorem",
+    type: "auto_like",
+    description:
+      "This penalty is imposed when a user is found using automated methods to artificially inflate the number of likes or reactions on their posts or others' posts. It undermines the integrity of engagement metrics and can distort the perception of popularity or relevance.",
+    scoring: -120,
+    action: "warning",
   },
   {
-    scoring: "row2",
-    description: "lorem",
-    karma: 121,
-    action: "lorem",
+    type: "auto_post",
+    description:
+      "This penalty is applied when a user is detected using automated tools or scripts to generate and post content on the platform. It violates the principles of authentic engagement and can lead to a decrease in the quality of content on the platform.",
+    scoring: -300,
+    action: "Warning",
+  },
+  {
+    type: "auto_reply",
+    description:
+      " This penalty is triggered when a user is observed using automated responses or bots to interact with other users or reply to comments. It diminishes the authenticity of interactions and can disrupt genuine communication within the community.",
+    scoring: -560,
+    action: "Warning",
+  },
+  {
+    type: "follow_back",
+    description:
+      "This penalty is enforced when a user engages in the practice of automatically following other users solely for the purpose of gaining followers in return. It detracts from the genuine connection-building aspect of following and can lead to a superficial sense of community.",
+    scoring: -802,
+    action: "warning",
+  },
+  {
+    type: "cross_interaction",
+    description:
+      "This penalty is applied when a user engages in inappropriate or unethical interactions across multiple accounts or platforms to manipulate outcomes or deceive others. It violates the principles of fair play and can damage trust within the community.",
+    scoring: -1240,
+    action: "warning",
+  },
+  {
+    type: "mass_acc_creation",
+    description:
+      "This penalty is imposed when a user is found creating multiple accounts in a short period, often for the purpose of circumventing restrictions or engaging in fraudulent activities. It undermines the integrity of user accounts and can disrupt the overall functioning of the platform",
+    scoring: -2500,
+    action: "Suspension",
+  },
+  {
+    type: "manipulation",
+    description:
+      "This penalty is applied when a user is detected engaging in manipulative tactics to artificially influence metrics, algorithms, or other users' behavior on the platform. It undermines the fairness and integrity of the platform's ecosystem and can lead to a distorted user experience for others.",
+    scoring: -3900,
+    action: "Suspension",
   },
 ];
