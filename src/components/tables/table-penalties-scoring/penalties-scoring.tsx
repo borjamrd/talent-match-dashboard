@@ -4,8 +4,6 @@ import { Separator } from "@/components/ui/separator";
 import {
   penaltiesScoringColumns,
   penaltiesScoringData,
-  rewardsScoringColumns,
-  rewardsScoringData,
 } from "@/constants/data";
 import { BasicDataTable } from "../basic-table";
 
@@ -23,7 +21,6 @@ export const PenaltiesScoring: React.FC<PenaltiesScoring> = ({}) => {
       <Separator />
       <BasicDataTable
         columns={penaltiesScoringColumns}
-        caption="Penalties scoring"
         rows={penaltiesScoringData}
       />
     </>
