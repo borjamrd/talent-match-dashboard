@@ -1,5 +1,7 @@
 # Talent Match Dashboard- Repository Installation Guide
 
+![Image Alt text](/public/dashboard.png "Dashboard"))
+
 ## Installing Repository
 
 To install the repository, follow these steps:
@@ -44,23 +46,17 @@ To install the repository, follow these steps:
 - [x] Set up login credentials for users.
 - [x] Implement OAuth for secure authentication.
 
-### 2. Middleware Authentication
-
-- [ ] Implement middleware authentication to restrict access to certain routes.
-- [ ] Ensure only authenticated users can access protected routes.
-- [ ] Make Triage and Rewards only available for admin users.
-
-### 3. Rewards Table
+### 2. Rewards Table
 
 - [x] Design and implement a rewards table to manage user rewards.
 - [x] Define schema and functionalities related to rewards.
 
-### 4. Penalties Table
+### 3. Penalties Table
 
 - [x] Create a penalties table to track penalties imposed on users.
 - [x] Define schema and functionalities related to penalties.
 
-### 5. MongoDB Database Connection
+### 4. MongoDB Database Connection
 
 - [x] Set up a MongoDB database connection.
 - [x] Ensure proper configuration and integration with the repository.
@@ -69,6 +65,12 @@ To install the repository, follow these steps:
 
 - [ ] Karma penalty scoring and action
 - [ ] Karma reward scoring and actions
+
+## Next actions 🚀
+
+- [ ] Implement middleware authentication to restrict access to certain routes.
+- [ ] Ensure only authenticated users can access protected routes.
+- [ ] Make Triage and Rewards only available for admin users.
 
 ## URLs of Interest
 
