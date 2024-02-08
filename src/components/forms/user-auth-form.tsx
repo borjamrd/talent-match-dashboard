@@ -29,7 +29,7 @@ export default function UserAuthForm() {
   const callbackUrl = searchParams.get("callbackUrl");
   const [loading, setLoading] = useState(false);
   const defaultValues = {
-    username: "test",
+    username: "",
     password: "",
   };
   const form = useForm<UserFormValue>({

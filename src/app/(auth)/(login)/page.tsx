@@ -24,25 +24,13 @@ export default function LoginPage() {
       </Link>
       <div className="relative hidden h-full flex-col bg-muted p-10 text-white dark:border-r lg:flex bg-zinc-900">
         <div className="relative z-20 flex items-center text-lg font-medium">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="mr-2 h-6 w-6"
-          >
-            <path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3" />
-          </svg>
-          Logo
+          <Image width={200} height={200} src={"/logo.svg"} alt="logo" />
         </div>
         <Image
-          className="m-auto float-right inset-0  p-50"
+          className="m-auto absolute bottom-0 z-0 p-50"
           alt="tst"
-          src="/signin.png"
-          width={700}
+          src="/hands.png"
+          width={500}
           objectFit="fill"
           height={500}
         />
@@ -50,13 +38,16 @@ export default function LoginPage() {
         <div className="relative z-20 mt-auto">
           <blockquote className="space-y-2">
             <p className="text-lg">
-              &ldquo;La experiencia ha sido de 10. Un trato inmejorable y te
-              acompañan en todo el proceso de selección. En especial a Pol por
-              su atención y amabilidad. Recomendable 100%...&rdquo;
+              &ldquo;Talent Match Global is designed to care for careers, not
+              for job hunting. We have created a powerful set of algorithms to
+              match the right talent with the right employers. But we don’t stop
+              there. We believe career building is about networking, building
+              trust, being inspired, exploring, and improving one’s own
+              capabilities.&rdquo;
             </p>
-            <footer className="text-sm">
+            {/* <footer className="text-sm">
               Jorge Z. - Business Process Manager
-            </footer>
+            </footer> */}
           </blockquote>
         </div>
       </div>
