@@ -1,5 +1,9 @@
 /* eslint-disable react/no-unescaped-entities */
+import { badgesGamification } from "@/constants/data";
+import { splitAndCapitalize } from "@/lib/utils";
+import { ScrollArea } from "@/ui/scroll-area";
 import Image from "next/image";
+import Link from "next/link";
 import {
   Card,
   CardContent,
@@ -7,44 +11,14 @@ import {
   CardHeader,
   CardTitle,
 } from "../ui/card";
-import { ScrollArea } from "@/ui/scroll-area";
-import { GamificationTypes } from "@/constants/data";
-import { splitAndCapitalize } from "@/lib/utils";
-import Link from "next/link";
 
 export const GamificationCard = ({ children }: any) => {
-  const badgesGamification: {
-    type: GamificationTypes;
-    path: string;
-    achieved?: boolean;
-  }[] = [
-    {
-      type: "fresh_author",
-      path: "/gamification1.png",
-      achieved: true,
-    },
-    {
-      type: "answer_expert",
-      path: "/gamification2.png",
-      achieved: true,
-    },
-    {
-      type: "friendly_admirer",
-      path: "/gamification3.png",
-      achieved: false,
-    },
-    {
-      type: "loyal_follower",
-      path: "/gamification4.png",
-      achieved: false,
-    },
-  ];
   return (
     <Card className="col-span-4">
       <CardHeader>
         <CardTitle>🚀 What's next</CardTitle>
         <CardDescription>
-          Here you can see your next challenges{" "}
+          Here you can see your next{" "}
           <Link className="underline" href="/dashboard/challenges">
             challenges
           </Link>

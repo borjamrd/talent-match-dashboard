@@ -25,14 +25,25 @@ export const authOptions: NextAuthOptions = {
         },
       },
       async authorize(credentials, req) {
-        const user = {
-          id: "1",
-          name: "TalentAdmin",
-          email: "admin@talentmatch.com",
-          username: credentials?.username,
-          rol: "admin",
-        };
-        if (user.username === "TalentAdmin") {
+        //!TODO add here login logic
+
+        if (credentials?.username === "TalentAdmin") {
+          const user = {
+            id: "1",
+            name: "TalentAdmin",
+            email: "admin@talentmatch.com",
+            username: credentials?.username,
+            rol: "admin",
+          };
+          return user;
+        } else if (credentials?.username === "johndoe") {
+          const user = {
+            id: "userid_1",
+            name: "John Doe",
+            email: "johndoe@gmail.com",
+            username: credentials?.username,
+            rol: "admin",
+          };
           return user;
         } else {
           return null;

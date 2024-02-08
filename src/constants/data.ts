@@ -103,3 +103,44 @@ export const navItems: NavItem[] = [
     label: "profile",
   },
 ];
+
+export const badgesGamification: {
+  type: GamificationTypes;
+  description: string;
+  path: string;
+  achieved?: boolean;
+  karma: number;
+}[] = [
+  {
+    karma: 120,
+    type: "fresh_author",
+    path: "/gamification1.png",
+    achieved: true,
+    description:
+      "Awarded to users when they publish their first post on the platform, encouraging them to contribute and engage with the community",
+  },
+  {
+    karma: 1320,
+    type: "answer_expert",
+    path: "/gamification2.png",
+    achieved: true,
+    description:
+      "Given to users who consistently show appreciation for others content by liking it, promoting positive interactions and fostering a supportive atmosphere.",
+  },
+  {
+    karma: 2250,
+    type: "friendly_admirer",
+    path: "/gamification3.png",
+    achieved: false,
+    description:
+      " Recognizes users who actively participate by providing helpful responses to questions or discussions, contributing to the knowledge sharing and problem-solving aspect of the community.",
+  },
+  {
+    karma: 4500,
+    type: "loyal_follower",
+    path: "/gamification4.png",
+    achieved: false,
+    description:
+      "Acknowledges users who follow other members, indicating an interest in their content and promoting connections within the community.",
+  },
+];

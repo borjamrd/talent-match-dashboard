@@ -23,9 +23,19 @@ To install the repository, follow these steps:
    ```
 
 4. Start local project:
+
    ```bash
    npm run dev
    ```
+
+5. Login with test credentials
+   Regular user:
+   username: jonhdoe
+   password: jonhdoe
+
+   Admin user:
+   username: TalentAdmin
+   password: talentadmin
 
 ## Achievements
 
