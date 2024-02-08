@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
+import { GamificationCard } from "@/components/cards/gamification-card";
 import { KarmaCard } from "@/components/cards/karma";
 import KarmaInfo from "@/components/cards/karma-info";
 import UserPenalties from "@/components/cards/user-penalties";
@@ -120,16 +121,7 @@ export default async function Page() {
               </Card>
             </div>
             <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-7">
-              <Card className="col-span-4">
-                <CardHeader>
-                  <CardTitle>🚀 What's next</CardTitle>
-                  <CardDescription>
-                    Here you can see your next challenges (gamification
-                    rewards)!
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="pl-2"></CardContent>
-              </Card>
+              <GamificationCard />
               <UserPenaltiesCard>
                 <UserPenalties />
               </UserPenaltiesCard>

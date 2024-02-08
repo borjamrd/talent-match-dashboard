@@ -44,10 +44,6 @@ export const columns: ColumnDef<Reward>[] = [
     ),
   },
   {
-    accessorKey: "time",
-    header: "Time",
-  },
-  {
     accessorKey: "current_karma",
     header: "Current Karma",
   },

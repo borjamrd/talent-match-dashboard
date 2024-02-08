@@ -30,6 +30,7 @@ export const fetchUserPenalties = async (id: string) => {
     const penalties: Penalty[] = await PenaltyModel.find({
       username: id,
     });
+
     return penalties;
   } catch (error) {
     throw new Error("Failed to fetch user penalties");

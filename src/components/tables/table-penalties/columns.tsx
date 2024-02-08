@@ -54,10 +54,7 @@ export const columns: ColumnDef<Penalty>[] = [
       </Badge>
     ),
   },
-  {
-    accessorKey: "time",
-    header: "Time",
-  },
+
   {
     accessorKey: "triage",
     header: "Triage",
