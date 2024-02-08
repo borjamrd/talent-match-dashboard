@@ -38,6 +38,7 @@ To install the repository, follow these steps:
 
 - [ ] Implement middleware authentication to restrict access to certain routes.
 - [ ] Ensure only authenticated users can access protected routes.
+- [ ] Make Triage and Rewards only available for admin users.
 
 ### 3. Rewards Table
 

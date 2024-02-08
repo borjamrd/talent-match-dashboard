@@ -1,4 +1,3 @@
-"use";
 /* eslint-disable react/no-unescaped-entities */
 import { KarmaCard } from "@/components/cards/karma";
 import KarmaInfo from "@/components/cards/karma-info";
@@ -15,14 +14,16 @@ import {
 } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { getServerSession } from "next-auth";
 
-export default function Page() {
+export default async function Page() {
+  const session = await getServerSession();
   return (
     <ScrollArea className="h-full">
       <div className="flex-1 space-y-4 p-4 md:p-8 pt-6">
         <div className="flex items-center justify-between space-y-2">
           <h2 className="text-3xl font-bold tracking-tight">
-            Hi, welcome back
+            Hi 👋 {session?.user?.name}, welcome back
           </h2>
           <div className="hidden md:flex items-center space-x-2">
             <CalendarDateRangePicker />

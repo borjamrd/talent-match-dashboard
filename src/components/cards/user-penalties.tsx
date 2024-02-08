@@ -16,7 +16,7 @@ export default async function UserPenalties() {
       {userpenalties?.map((p) => (
         <div
           key={p.id}
-          className="flex gap-4 items-center px-3 py-2 rounded-md dark:bg-neutral-900"
+          className="flex gap-4 items-center px-3 py-2 rounded-md bg-neutral-100 mb-2 dark:bg-neutral-900"
         >
           <p className="me-auto text-red-600 text-sm">-{p.penalty_score}</p>
           <TriageBadge type={p.triage} />
