@@ -1,3 +1,4 @@
+"use";
 /* eslint-disable react/no-unescaped-entities */
 import { KarmaCard } from "@/components/cards/karma";
 import KarmaInfo from "@/components/cards/karma-info";

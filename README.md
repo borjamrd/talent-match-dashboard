@@ -36,8 +36,8 @@ To install the repository, follow these steps:
 
 ### 2. Middleware Authentication
 
-- [x] Implement middleware authentication to restrict access to certain routes.
-- [x] Ensure only authenticated users can access protected routes.
+- [ ] Implement middleware authentication to restrict access to certain routes.
+- [ ] Ensure only authenticated users can access protected routes.
 
 ### 3. Rewards Table
 

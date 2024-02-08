@@ -24,12 +24,11 @@ export const fetchPenalties = async () => {
   }
 };
 
-export const fetchUserPenalties = async (username: string) => {
-  console.log(username);
+export const fetchUserPenalties = async (id: string) => {
   try {
     connectToDB();
     const penalties: Penalty[] = await PenaltyModel.find({
-      username: username,
+      username: id,
     });
     return penalties;
   } catch (error) {

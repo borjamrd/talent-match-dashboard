@@ -11,7 +11,6 @@ import {
   DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { DefaultSession } from "next-auth";
 import { signOut, useSession } from "next-auth/react";
 
 export function UserNav() {
@@ -63,6 +62,7 @@ export function UserNav() {
             onClick={() =>
               signOut({
                 callbackUrl: "/",
+                redirect: true,
               })
             }
           >

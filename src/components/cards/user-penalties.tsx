@@ -1,13 +1,15 @@
 import { fetchUserPenalties } from "@/lib/data";
 
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { splitAndCapitalize } from "@/lib/utils";
+import { getServerSession } from "next-auth";
 import { PenaltyBadge } from "../tables/table-penalties/penalty-badge";
 import { TriageBadge } from "../tables/table-penalties/triage-badge";
 import { Badge } from "../ui/badge";
-import { splitAndCapitalize } from "@/lib/utils";
 
 export default async function UserPenalties() {
-  const userpenalties = await fetchUserPenalties("borjamrd");
+  const session = await getServerSession();
+  const userpenalties = await fetchUserPenalties(session?.user?.email || "");
 
   return (
     <ScrollArea className="h-[200px] w-full">
