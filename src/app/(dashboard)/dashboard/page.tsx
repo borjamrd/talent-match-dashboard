@@ -1,4 +1,8 @@
-"use client";
+/* eslint-disable react/no-unescaped-entities */
+import { KarmaCard } from "@/components/cards/karma";
+import KarmaInfo from "@/components/cards/karma-info";
+import UserPenalties from "@/components/cards/user-penalties";
+import { UserPenaltiesCard } from "@/components/cards/user-penalties-card";
 import { CalendarDateRangePicker } from "@/components/date-range-picker";
 import { Button } from "@/components/ui/button";
 import {
@@ -10,17 +14,14 @@ import {
 } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { useSession } from "next-auth/react";
 
 export default function Page() {
-  const { data: session } = useSession();
-
   return (
     <ScrollArea className="h-full">
       <div className="flex-1 space-y-4 p-4 md:p-8 pt-6">
         <div className="flex items-center justify-between space-y-2">
           <h2 className="text-3xl font-bold tracking-tight">
-            Hi 👋 {session?.user && session.user.name} , welcome back
+            Hi, welcome back
           </h2>
           <div className="hidden md:flex items-center space-x-2">
             <CalendarDateRangePicker />
@@ -36,31 +37,9 @@ export default function Page() {
           </TabsList>
           <TabsContent value="overview" className="space-y-4">
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-              <Card>
-                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                  <CardTitle className="text-sm font-medium">
-                    Total Revenue
-                  </CardTitle>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    className="h-4 w-4 text-muted-foreground"
-                  >
-                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-                  </svg>
-                </CardHeader>
-                <CardContent>
-                  <div className="text-2xl font-bold">$45,231.89</div>
-                  <p className="text-xs text-muted-foreground">
-                    +20.1% from last month
-                  </p>
-                </CardContent>
-              </Card>
+              <KarmaCard>
+                <KarmaInfo />
+              </KarmaCard>
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <CardTitle className="text-sm font-medium">
@@ -141,19 +120,17 @@ export default function Page() {
             <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-7">
               <Card className="col-span-4">
                 <CardHeader>
-                  <CardTitle>Overview</CardTitle>
-                </CardHeader>
-                <CardContent className="pl-2">Overview</CardContent>
-              </Card>
-              <Card className="col-span-4 md:col-span-3">
-                <CardHeader>
-                  <CardTitle>Recent Sales</CardTitle>
+                  <CardTitle>🚀 What's next</CardTitle>
                   <CardDescription>
-                    You made 265 sales this month.
+                    Here you can see your next challenges (gamification
+                    rewards)!
                   </CardDescription>
                 </CardHeader>
-                <CardContent>Sales</CardContent>
+                <CardContent className="pl-2"></CardContent>
               </Card>
+              <UserPenaltiesCard>
+                <UserPenalties />
+              </UserPenaltiesCard>
             </div>
           </TabsContent>
         </Tabs>

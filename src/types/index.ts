@@ -1,4 +1,9 @@
 import { Icons } from "@/components/icons";
+import { Session } from "next-auth";
+
+export interface ExtendedSession extends Session {
+  username?: string;
+}
 
 export interface NavItem {
   title: string;

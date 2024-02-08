@@ -8,6 +8,7 @@ import { TriageBadge } from "./triage-badge";
 import { Badge } from "@/components/ui/badge";
 import { splitAndCapitalize } from "@/lib/utils";
 import { Check, X } from "lucide-react";
+import { Reviewed } from "../table-rewards/reviewed";
 
 export const columns: ColumnDef<Penalty>[] = [
   {
@@ -77,15 +78,7 @@ export const columns: ColumnDef<Penalty>[] = [
   {
     accessorKey: "reviewed",
     header: "Reviewed",
-    cell: ({ row }) => (
-      <div>
-        {row.original.reviewed ? (
-          <Check size={iconprops.size} />
-        ) : (
-          <X size={iconprops.size} className="text-red-600" />
-        )}
-      </div>
-    ),
+    cell: ({ row }) => <Reviewed reviewed={row.original.reviewed} />,
   },
   {
     id: "actions",
