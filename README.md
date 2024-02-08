@@ -32,8 +32,8 @@ To install the repository, follow these steps:
 
 5. Login with test credentials
    Regular user:
-   username: jonhdoe
-   password: jonhdoe
+   username: johndoe
+   password: johndoe
 
    Admin user:
    username: TalentAdmin
